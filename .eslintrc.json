@@ -1,0 +1,9 @@
+{
+  "root": true,
+  "extends": "@react-native",
+  "rules": {
+    "semi": [2, "never"],
+    "prefer-const": "error",
+    "object-curly-spacing": [2, "always"]
+  }
+}
