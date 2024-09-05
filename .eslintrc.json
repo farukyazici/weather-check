@@ -2,8 +2,9 @@
   "root": true,
   "extends": "@react-native",
   "rules": {
-    "semi": [2, "never"],
+    "comma-dangle": [2, "never"],
+    "object-curly-spacing": [2, "always"],
     "prefer-const": "error",
-    "object-curly-spacing": [2, "always"]
+    "semi": [2, "never"]
   }
 }
