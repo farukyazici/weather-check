@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import { Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { Text, TextInput, TouchableOpacity, ScrollView, Image } from 'react-native'
 import styles from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { getForecastRequest, selectLocation } from '../../redux'
-import { Location } from '../../redux/reducers'
+import { getForecastRequest, selectCurrent, selectLocation, Current, Location } from '../../redux'
 
 export const HomePage: React.FC = () => {
   const dispatch = useDispatch()
   const [city, setCity] = useState('')
   const location = useSelector(selectLocation) as Location
+  const current = useSelector(selectCurrent) as Current
   return (
     <ScrollView style={styles.container}>
         <Text>Weather Check</Text>
@@ -20,6 +20,9 @@ export const HomePage: React.FC = () => {
         </TouchableOpacity>
         <Text>{location?.name}, {location?.country}</Text>
         <Text>{location?.tz_id}</Text>
+        <Text>{current?.condition?.text}</Text>
+        <Text>{current?.temp_c}</Text>
+        <Image style={{ width: 48, height: 48 }} source={{ uri: `https:${current?.condition?.icon}` }}/>
     </ScrollView>
   )
 }

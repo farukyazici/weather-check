@@ -1,6 +1,12 @@
 import { GetForecastSuccessAction, GetForecastErrorAction } from '../actions'
 
 export interface Current {
+  temp_c: number
+  temp_f: number
+  condition: {
+    text: string
+    icon: string
+  },
 
 }
 
