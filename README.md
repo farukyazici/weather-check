@@ -1,6 +1,8 @@
 # Mobile App: Weather Check
 A simple and weather forecast app.
 
+<img src="https://i.ibb.co/HY6VptB/wc-logos.png" height="160" />
+
 ## 1. Description
 This project is a cross-platform mobile application designed to help users check weather based on city and see the forecast for now, and next 5 hours.
 
