@@ -5,7 +5,7 @@ import weatherReducer from './reducers/weather'
 
 // Combining multiple reducers here and provide a key to idenitfy them
 const rootReducer = combineReducers({
-    weather: weatherReducer
+    weatherState: weatherReducer
 })
 
 // create the saga middleware

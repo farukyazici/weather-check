@@ -11,6 +11,7 @@ export interface Forecast {
 export interface Location {
   name: string
   country: string
+  tz_id: string
 }
 
 export interface Weather {
