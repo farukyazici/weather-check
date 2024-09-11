@@ -56,5 +56,5 @@ The app opens with a homepage which includes a search bar, location info, curren
    ```
    The test command is configured to show the coverage. Currently, testing coverage is 100% as follows:
 
-   <img src="https://ibb.co/Bw4m7tq" height="160"/>
+   <img src="https://i.ibb.co/7bgHTX2/Screenshot-2024-09-11-at-21-37-01.png" />
 
