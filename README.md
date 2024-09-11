@@ -50,6 +50,8 @@ The app opens with a homepage which includes a search bar, location info, curren
    - Current weather: Shows current weather text, tempoerature, weather icon and time.
    - Forecast: Shows the forecast for upcoming 5 hours. If end of the day is near, it shows overnight hours from the next day.
 
+     <img src="https://i.ibb.co/NT292Wy/screenshots.png" height="480" />
+
 
 ### 4. **Testing**
 - The app is tested via the commandd:
