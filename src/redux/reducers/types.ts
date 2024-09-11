@@ -1,27 +1,27 @@
 import { GetForecastSuccessAction, GetForecastErrorAction } from '../actions'
 
-export interface WeatherState {
-    current: CurrentWeather | null
-    forecast: any
-    error: any
+export interface Current {
+
 }
 
-export interface CurrentWeather {
-  current?: {
-    temp_c: number
-    feelslike_c: number
-    condition: {
-      text: string
-      icon: string
-      code: number
-    }
-    location: {
-        name: string
-        country: string
-    }
-  } | null
-  forecast: any
-  error: any
+export interface Forecast {
+
+}
+
+export interface Location {
+  name: string
+  country: string
+}
+
+export interface Weather {
+    current: Current | null
+    forecast: any
+    location: Location
+}
+
+export interface WeatherState {
+  weather: Weather | null
+  error: string | null
 }
 
 export type WeatherActionTypes = GetForecastSuccessAction | GetForecastErrorAction

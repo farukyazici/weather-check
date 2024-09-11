@@ -1,14 +1,14 @@
 import { GET_FORECAST_ERROR, GET_FORECAST_REQUEST, GET_FORECAST_SUCCESS } from '../action-types'
+import { Weather } from '../reducers'
 
 export const getForecastRequest = (city: string) => ({
     type: GET_FORECAST_REQUEST,
     city
 })
 
-export const getForecastSuccess = (current: string, forecast: string) => ({
+export const getForecastSuccess = (weather: Weather) => ({
     type: GET_FORECAST_SUCCESS,
-    current,
-    forecast
+    weather
 })
 
 export const getForecastError = (error: string) => ({

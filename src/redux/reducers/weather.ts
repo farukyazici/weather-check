@@ -2,8 +2,7 @@ import { GET_FORECAST_ERROR, GET_FORECAST_SUCCESS } from '../action-types'
 import { WeatherActionTypes, WeatherState } from './types'
 
 const initialState: WeatherState = {
-  current: null,
-  forecast: null,
+  weather: null,
   error: null
 }
 
@@ -15,7 +14,7 @@ const weatherReducer = (
     case GET_FORECAST_SUCCESS:
       return {
         ...state,
-        forecast: action.forecast
+        weather: action.weather
       }
     case GET_FORECAST_ERROR:
       return {

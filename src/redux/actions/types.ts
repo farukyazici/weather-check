@@ -1,4 +1,5 @@
 import { GET_FORECAST_ERROR, GET_FORECAST_REQUEST, GET_FORECAST_SUCCESS } from '../action-types'
+import { Weather } from '../reducers'
 
 export interface GetForecastRequestAction {
     type: typeof GET_FORECAST_REQUEST;
@@ -7,11 +8,10 @@ export interface GetForecastRequestAction {
 
 export interface GetForecastSuccessAction {
     type: typeof GET_FORECAST_SUCCESS;
-    current: any;
-    forecast: any;
+    weather: Weather
 }
 
 export interface GetForecastErrorAction {
     type: typeof GET_FORECAST_ERROR;
-    error: any;
+    error: string;
 }
