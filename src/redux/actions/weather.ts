@@ -1,23 +1,17 @@
-import { GET_CURRENT_WEATHER, GET_FORECAST, SET_CURRENT_WEATHER, SET_FORECAST } from '../action-types'
-import { CurrentWeather } from '../reducers'
-import { GetCurrentWeatherAction, GetForecastAction, SetCurrentWeatherAction, SetForecastAction } from './types'
+import { GET_FORECAST_ERROR, GET_FORECAST_REQUEST, GET_FORECAST_SUCCESS } from '../action-types'
 
-export const getCurrentWeather = (city: string): GetCurrentWeatherAction => ({
-    type: GET_CURRENT_WEATHER,
+export const getForecastRequest = (city: string) => ({
+    type: GET_FORECAST_REQUEST,
     city
 })
 
-export const setCurrentWeather = (currentWeather: CurrentWeather): SetCurrentWeatherAction => ({
-    type: SET_CURRENT_WEATHER,
-    currentWeather
-})
-
-export const getForecast = (city: string): GetForecastAction => ({
-    type: GET_FORECAST,
-    city
-})
-
-export const setForecast = (forecast: string): SetForecastAction => ({
-    type: SET_FORECAST,
+export const getForecastSuccess = (current: string, forecast: string) => ({
+    type: GET_FORECAST_SUCCESS,
+    current,
     forecast
+})
+
+export const getForecastError = (error: string) => ({
+    type: GET_FORECAST_ERROR,
+    error
 })

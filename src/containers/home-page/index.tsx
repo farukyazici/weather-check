@@ -1,23 +1,21 @@
-import React, { useEffect } from 'react'
-import { View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import styles from './styles'
-import client from '../../api/client'
+import { useDispatch } from 'react-redux'
+import { getForecastRequest } from '../../redux/actions'
 
 export const HomePage: React.FC = () => {
-  useEffect(() => {
-    client.get('/current.json', {
-      params: {
-        q: 'London'
-      }
-    }).then(res => {
-      console.log(res)
-    }).catch(err => {
-      console.trace(err)
-    })
-  }, [])
+  const dispatch = useDispatch()
+  const [city, setCity] = useState('')
   return (
     <View style={styles.container}>
         <Text>Weather Check</Text>
+        <TextInput value={city} onChangeText={setCity} />
+        <TouchableOpacity onPress={() => {
+          dispatch(getForecastRequest(city))
+        }}>
+          <Text>SEARCH</Text>
+        </TouchableOpacity>
     </View>
   )
 }

@@ -1,22 +1,17 @@
-import { GET_CURRENT_WEATHER, GET_FORECAST, SET_CURRENT_WEATHER, SET_FORECAST } from '../action-types'
-import { CurrentWeather } from '../reducers'
+import { GET_FORECAST_ERROR, GET_FORECAST_REQUEST, GET_FORECAST_SUCCESS } from '../action-types'
 
-export interface GetCurrentWeatherAction {
-    type: typeof GET_CURRENT_WEATHER;
+export interface GetForecastRequestAction {
+    type: typeof GET_FORECAST_REQUEST;
     city: string;
 }
 
-export interface SetCurrentWeatherAction {
-    type: typeof SET_CURRENT_WEATHER;
-    currentWeather: CurrentWeather;
+export interface GetForecastSuccessAction {
+    type: typeof GET_FORECAST_SUCCESS;
+    current: any;
+    forecast: any;
 }
 
-export interface GetForecastAction {
-    type: typeof GET_FORECAST;
-    city: string;
-}
-
-export interface SetForecastAction {
-    type: typeof SET_FORECAST;
-    forecast: string;
+export interface GetForecastErrorAction {
+    type: typeof GET_FORECAST_ERROR;
+    error: any;
 }
