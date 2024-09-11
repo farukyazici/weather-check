@@ -1,25 +1,27 @@
 import { GET_FORECAST_ERROR, GET_FORECAST_SUCCESS } from '../action-types'
 import { WeatherActionTypes, WeatherState } from './types'
 
-const initialState: WeatherState = {
+export const initialState: WeatherState = {
   weather: null,
   error: null
 }
 
 const weatherReducer = (
   state = initialState,
-  action: WeatherActionTypes,
+  action?: WeatherActionTypes,
 ): WeatherState => {
-  switch (action.type) {
+  switch (action?.type) {
     case GET_FORECAST_SUCCESS:
       return {
         ...state,
-        weather: action.weather
+        weather: action?.weather,
+        error: null
       }
     case GET_FORECAST_ERROR:
       return {
         ...state,
-        error: action.error
+        weather: null,
+        error: action?.error
       }
     default:
       return state
