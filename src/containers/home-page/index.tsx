@@ -17,7 +17,7 @@ export const HomePage: React.FC = () => {
         <Text style={styles.header}>Weather Check</Text>
         <View style={styles.searchContainer}>
           <TextInput style={styles.input} value={city} onChangeText={setCity} placeholder="Search..." />
-          <TouchableOpacity style={styles.searchButton} onPress={() => dispatch(getForecastRequest(city))} >
+          <TouchableOpacity testID="search-button" style={styles.searchButton} onPress={() => dispatch(getForecastRequest(city))} >
             <Text>SEARCH</Text>
           </TouchableOpacity>
         </View>

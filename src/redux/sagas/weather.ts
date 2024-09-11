@@ -9,7 +9,6 @@ const FORECAST_LIMIT = 5
 export function* handleGetForecast({ city }: GetForecastRequestAction): Generator<CallEffect | PutEffect> {
   try {
     const now = dayjs()
-    console.log('now', now)
     const isWithinTheDay = 24 - dayjs(now).hour() >= FORECAST_LIMIT
     // Get current weather forecast
     const response = yield call(client.get, API_PATHS.FORECAST, {
