@@ -14,3 +14,10 @@ export const selectCurrent = createSelector(
     return weather?.current
   },
 )
+
+export const selectForecast = createSelector(
+    [(state: {weatherState: WeatherState}) => state?.weatherState?.weather],
+    weather => {
+      return weather?.hours
+    },
+  )

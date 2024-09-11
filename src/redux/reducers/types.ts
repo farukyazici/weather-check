@@ -3,15 +3,23 @@ import { GetForecastSuccessAction, GetForecastErrorAction } from '../actions'
 export interface Current {
   temp_c: number
   temp_f: number
-  condition: {
-    text: string
-    icon: string
-  },
-
+  condition: Condition
 }
 
-export interface Forecast {
+interface Condition {
+  text: string
+  icon: string
+}
 
+export interface ForecastDay {
+  hour: Hour[]
+}
+
+export interface Hour {
+  time: string
+  condition: Condition
+  temp_c: string,
+  temp_f: string
 }
 
 export interface Location {
@@ -22,8 +30,8 @@ export interface Location {
 }
 
 export interface Weather {
-    current: Current | null
-    forecast: any
+    current: Current
+    hours: any
     location: Location
 }
 
