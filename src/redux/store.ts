@@ -1,6 +1,6 @@
 import { combineReducers, applyMiddleware, createStore } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import mySaga from './sagas'
+import mySaga from './sagas/weather'
 import weatherReducer from './reducers/weather'
 
 // Combining multiple reducers here and provide a key to idenitfy them
