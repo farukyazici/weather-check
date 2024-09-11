@@ -5,7 +5,7 @@ import { act, fireEvent, render } from '@testing-library/react-native'
 
 import { HomePage } from '..'
 import weatherReducer from '../../../redux/reducers/weather'
-import { getForecastRequest } from '../../../redux'
+import { getForecastError, getForecastRequest } from '../../../redux'
 
 const weatherState = {
   weather: {
@@ -48,6 +48,14 @@ describe('Home page', () => {
     })
     expect(spyDispatch).toHaveBeenCalledWith(
       getForecastRequest(''),
+    )
+  })
+  it('should render error correctly', async () => {
+    store.dispatch(getForecastError('Network Error'))
+    render(
+      <Provider store={store}>
+        <HomePage />
+      </Provider>,
     )
   })
 })
