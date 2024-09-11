@@ -118,7 +118,8 @@ const styles = StyleSheet.create<Styles>({
   error: {
     color: colors.white1,
     fontSize: values.m,
-    marginTop: values.m
+    marginTop: values.m,
+    textAlign: 'center'
   }
 })
 
