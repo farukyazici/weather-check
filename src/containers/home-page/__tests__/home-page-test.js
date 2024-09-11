@@ -19,10 +19,12 @@ const store = createStore(
         },
         hours: [
           {
-            temp_c: 29
+            temp_c: 29,
+            time: '2024-09-12 00:00'
           },
           {
-            temp_c: 32
+            temp_c: 32,
+            time: '2024-09-12 01:00'
           }
         ]
       }
