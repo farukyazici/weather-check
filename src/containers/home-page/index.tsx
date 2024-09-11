@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Text, TextInput, TouchableOpacity, Image, FlatList, View } from 'react-native'
-import styles from './styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { getForecastRequest, selectCurrent, selectLocation, Current, Location, selectForecast, Hour } from '../../redux'
 import dayjs from 'dayjs'
+import { getForecastRequest, selectCurrent, selectLocation, Current, Location, selectForecast, Hour } from '../../redux'
+import styles from './styles'
+import { ForecastCard, getWeatherText } from '../../common'
 
 export const HomePage: React.FC = () => {
   const dispatch = useDispatch()
@@ -20,26 +21,24 @@ export const HomePage: React.FC = () => {
             <Text>SEARCH</Text>
           </TouchableOpacity>
         </View>
+        {location ? <>
         <Text style={styles.name} numberOfLines={1} ellipsizeMode="middle">{location?.name}, {location?.country}</Text>
         <Text>{location?.tz_id}</Text>
-        <View style={styles.currentCondition}>
+        <View style={styles.currentContainer}>
           <Image style={styles.currentIcon} source={{ uri: `https:${current?.condition?.icon}` }}/>
-          <View style={styles.currentDetails}>
-            <Text style={styles.weatherText}>{current?.condition?.text}</Text>
-            <Text style={styles.tempText}>{current?.temp_c}ºC</Text>
-            <Text style={styles.timeText}>{dayjs(location?.localtime).format('HH:mm')}</Text>
+          <View>
+            <Text style={styles.weather}>{current?.condition?.text}</Text>
+            <Text style={styles.temperature}>{getWeatherText(current)}</Text>
+            <Text>{dayjs(location?.localtime).format('HH:mm')}</Text>
           </View>
         </View>
         <FlatList
+          style={styles.list}
           horizontal
           data={hours}
-          renderItem={({ item }) => <View>
-            <Text>{dayjs(item?.time).format('HH:mm')}</Text>
-            <Image style={{ width: 48, height: 48 }} source={{ uri: `https:${item?.condition?.icon}` }}/>
-            <Text>{item?.temp_c}</Text>
-          </View>}
+          renderItem={({ item }) => <ForecastCard hour={item} />}
           keyExtractor={item => item.time}
-      />
+      /></> : null }
     </View>
   )
 }

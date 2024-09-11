@@ -1,5 +1,5 @@
 import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from 'react-native'
-import { colors } from '../../theme';
+import { colors, values } from '../../theme'
 
 interface Styles {
   container: ViewStyle;
@@ -9,57 +9,63 @@ interface Styles {
   header: TextStyle
   searchButton: ViewStyle
   name: TextStyle
+  currentContainer: ViewStyle
+  weather: TextStyle
+  temperature: TextStyle
+  list: ViewStyle
 }
 
 const styles = StyleSheet.create<Styles>({
   container: {
     flex: 1,
     alignItems: 'center',
-    padding: 16
+    padding: values.s
   },
   header: {
-    fontSize: 24,
+    fontSize: values.m,
     textTransform: 'uppercase'
   },
   searchContainer: {
     width: '100%',
-    margin: 16,
+    margin: values.s,
     flexDirection: 'row',
     backgroundColor: colors.black1,
-    borderRadius: 8
+    borderRadius: values.xs
   },
   input: {
     flex: 1,
-    paddingHorizontal: 8
+    paddingHorizontal: values.xs
   },
   searchButton: {
     backgroundColor: colors.gray2,
-    borderRadius: 0,
-    borderTopRightRadius: 8,
-    borderBottomRightRadius: 8,
-    paddingHorizontal: 8,
+    borderTopRightRadius: values.xs,
+    borderBottomRightRadius: values.xs,
+    paddingHorizontal: values.xs,
     justifyContent: 'center'
   },
   name: {
-    fontSize: 32,
+    fontSize: values.l,
     textAlign: 'center',
-    marginTop: 16
+    marginTop: values.s
   },
-  currentCondition: {
+  currentContainer: {
     flexDirection: 'row',
-    marginVertical: 32,
+    marginVertical: values.l,
     alignItems: 'center'
   },
   currentIcon: {
-    width: 96,
-    height: 96,
-    marginRight: 16
+    width: values.xxl,
+    height: values.xxl,
+    marginRight: values.s
   },
-  weatherText: {
-    fontSize: 16
+  weather: {
+    fontSize: values.s
   },
-  tempText: {
-    fontSize: 32
+  temperature: {
+    fontSize: values.l
+  },
+  list: {
+    marginHorizontal: -values.s
   }
 })
 
