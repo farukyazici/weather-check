@@ -9,6 +9,7 @@ interface Styles {
   header: TextStyle
   searchButton: ViewStyle
   searchButtonText: TextStyle
+  clearBtn: TextStyle
   name: TextStyle
   timezone: TextStyle
   currentContainer: ViewStyle
@@ -17,7 +18,7 @@ interface Styles {
   time: TextStyle
   list: ViewStyle
   errorContainer: ViewStyle
-  errorIcon: ImageStyle
+  errorIcon: TextStyle
   error: TextStyle
 }
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create<Styles>({
   },
   searchContainer: {
     width: '100%',
-    minHeight: values.l,
+    height: values.xl,
     margin: values.s,
     flexDirection: 'row',
     backgroundColor: colors.black1,
@@ -54,6 +55,16 @@ const styles = StyleSheet.create<Styles>({
   },
   searchButtonText: {
     color: colors.white1
+  },
+  clearBtn: {
+    height: values.xl,
+    fontSize: values.m,
+    width: values.xl,
+    textAlign: 'center',
+    color: colors.white1,
+    padding: values.xs,
+    alignSelf: 'center',
+    justifyContent: 'center'
   },
   name: {
     fontSize: values.l,

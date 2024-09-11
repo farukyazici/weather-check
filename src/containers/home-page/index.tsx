@@ -18,6 +18,7 @@ export const HomePage: React.FC = () => {
         <Text style={styles.header}>Weather Check</Text>
         <View style={styles.searchContainer}>
           <TextInput style={styles.input} value={city} onChangeText={setCity} placeholder="Search..." />
+          {city ? <TouchableOpacity onPress={() => setCity('')}><Text style={styles.clearBtn}>x</Text></TouchableOpacity> : null}
           <TouchableOpacity testID="search-button" style={styles.searchButton} onPress={() => dispatch(getForecastRequest(city))} >
             <Text style={styles.searchButtonText}>SEARCH</Text>
           </TouchableOpacity>
@@ -30,7 +31,7 @@ export const HomePage: React.FC = () => {
           <View>
             <Text style={styles.weather}>{current?.condition?.text}</Text>
             <Text style={styles.temperature}>{getWeatherText(current)}</Text>
-            <Text style={styles.time}>{dayjs(location?.localtime).format('HH:mm')}</Text>
+            <Text style={styles.time}>{dayjs().format('HH:mm')}</Text>
           </View>
         </View>
         <FlatList
