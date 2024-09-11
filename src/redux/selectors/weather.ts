@@ -16,8 +16,15 @@ export const selectCurrent = createSelector(
 )
 
 export const selectForecast = createSelector(
-    [(state: {weatherState: WeatherState}) => state?.weatherState?.weather],
-    weather => {
-      return weather?.hours
-    },
-  )
+  [(state: {weatherState: WeatherState}) => state?.weatherState?.weather],
+  weather => {
+    return weather?.hours
+  },
+)
+
+export const selectError = createSelector(
+  [(state: {weatherState: WeatherState}) => state?.weatherState],
+  weatherState => {
+    return weatherState?.error
+  },
+)

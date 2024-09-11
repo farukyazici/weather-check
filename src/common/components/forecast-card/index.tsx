@@ -11,7 +11,7 @@ interface Props {
 
 export const ForecastCard: React.FC<Props> = ({ hour }) =>
     <View style={styles.container}>
-      <Text>{dayjs(hour?.time).format('HH:mm')}</Text>
+      <Text style={styles.hour}>{dayjs(hour?.time).format('HH:mm')}</Text>
       <Image style={styles.icon} source={{ uri: `https:${hour?.condition?.icon}` }} />
       <Text style={styles.temperature}>{getWeatherText(hour)}</Text>
     </View>

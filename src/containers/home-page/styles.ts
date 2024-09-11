@@ -4,15 +4,19 @@ import { colors, values } from '../../theme'
 interface Styles {
   container: ViewStyle;
   searchContainer: ViewStyle;
-  input: ViewStyle;
+  input: TextStyle;
   currentIcon: ImageStyle;
   header: TextStyle
   searchButton: ViewStyle
+  searchButtonText: TextStyle
   name: TextStyle
+  timezone: TextStyle
   currentContainer: ViewStyle
   weather: TextStyle
   temperature: TextStyle
+  time: TextStyle
   list: ViewStyle
+  error: TextStyle
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -23,10 +27,12 @@ const styles = StyleSheet.create<Styles>({
   },
   header: {
     fontSize: values.m,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    color: colors.white1
   },
   searchContainer: {
     width: '100%',
+    minHeight: values.l,
     margin: values.s,
     flexDirection: 'row',
     backgroundColor: colors.black1,
@@ -34,7 +40,8 @@ const styles = StyleSheet.create<Styles>({
   },
   input: {
     flex: 1,
-    paddingHorizontal: values.xs
+    paddingHorizontal: values.xs,
+    color: colors.white1
   },
   searchButton: {
     backgroundColor: colors.gray2,
@@ -43,10 +50,17 @@ const styles = StyleSheet.create<Styles>({
     paddingHorizontal: values.xs,
     justifyContent: 'center'
   },
+  searchButtonText: {
+    color: colors.white1
+  },
   name: {
     fontSize: values.l,
     textAlign: 'center',
-    marginTop: values.s
+    marginTop: values.s,
+    color: colors.white1
+  },
+  timezone: {
+    color: colors.white1
   },
   currentContainer: {
     flexDirection: 'row',
@@ -59,13 +73,21 @@ const styles = StyleSheet.create<Styles>({
     marginRight: values.s
   },
   weather: {
-    fontSize: values.s
+    fontSize: values.s,
+    color: colors.white1
   },
   temperature: {
-    fontSize: values.l
+    fontSize: values.l,
+    color: colors.white1
+  },
+  time: {
+    color: colors.white1
   },
   list: {
     marginHorizontal: -values.s
+  },
+  error: {
+    color: colors.white1
   }
 })
 

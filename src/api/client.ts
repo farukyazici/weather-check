@@ -2,7 +2,7 @@ import axios from 'axios'
 import { API_KEY } from '@env'
 
 const client = axios.create({
-  baseURL: 'http://api.weatherapi.com/v1',
+  baseURL: 'https://api.weatherapi.com/v1',
   params: {
     key: API_KEY
   },

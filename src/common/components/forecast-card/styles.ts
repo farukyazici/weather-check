@@ -3,6 +3,7 @@ import { colors, values } from '../../../theme'
 
 interface Styles {
   container: ViewStyle
+  hour: TextStyle
   icon: ImageStyle
   temperature: TextStyle
 }
@@ -16,13 +17,17 @@ const styles = StyleSheet.create<Styles>({
     borderRadius: values.xxs,
     height: values.xxxl
   },
+  hour: {
+    color: colors.white1
+  },
   icon: {
     width: values.xl,
     height: values.xl,
     marginVertical: values.xs
   },
   temperature: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: colors.white1
   }
 })
 
