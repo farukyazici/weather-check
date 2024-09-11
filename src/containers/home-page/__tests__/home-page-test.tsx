@@ -7,30 +7,25 @@ import { HomePage } from '..'
 import weatherReducer from '../../../redux/reducers/weather'
 import { getForecastRequest } from '../../../redux'
 
-const store = createStore(
-  combineReducers({
-    weatherState: weatherReducer
-  }),
-  {
-    weatherState: {
-      weather: {
-        location: {
-          name: 'Berlin'
-        },
-        hours: [
-          {
-            temp_c: 29,
-            time: '2024-09-12 00:00'
-          },
-          {
-            temp_c: 32,
-            time: '2024-09-12 01:00'
-          }
-        ]
+const weatherState = {
+  weather: {
+    location: {
+      name: 'Berlin'
+    },
+    hours: [
+      {
+        temp_c: 29,
+        time: '2024-09-12 00:00'
+      },
+      {
+        temp_c: 32,
+        time: '2024-09-12 01:00'
       }
-    }
-  },
-)
+    ]
+  }
+}
+
+const store = createStore(combineReducers({ weatherState: weatherReducer }), { weatherState })
 const spyDispatch = jest.spyOn(store, 'dispatch')
 
 describe('Home page', () => {
