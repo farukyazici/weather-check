@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, TextInput, TouchableOpacity, Image, FlatList, View } from 'react-native'
+import { Text, TextInput, TouchableOpacity, Image, FlatList, View, Alert } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 import { getForecastRequest, selectCurrent, selectLocation, Current, Location, selectForecast, Hour, selectError } from '../../redux'
@@ -19,7 +19,8 @@ export const HomePage: React.FC = () => {
         <View style={styles.searchContainer}>
           <TextInput style={styles.input} value={city} onChangeText={setCity} placeholder="Search..." />
           {city ? <TouchableOpacity onPress={() => setCity('')}><Text style={styles.clearBtn}>x</Text></TouchableOpacity> : null}
-          <TouchableOpacity testID="search-button" style={styles.searchButton} onPress={() => dispatch(getForecastRequest(city))} >
+          <TouchableOpacity testID="search-button" style={styles.searchButton} onPress={() =>
+            !city?.length ? Alert.alert('Please enter a city') : dispatch(getForecastRequest(city))} >
             <Text style={styles.searchButtonText}>SEARCH</Text>
           </TouchableOpacity>
         </View>
