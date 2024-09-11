@@ -40,7 +40,10 @@ export const HomePage: React.FC = () => {
           renderItem={({ item }) => <ForecastCard hour={item} />}
           keyExtractor={item => item.time}
       /></> : null }
-      {error ? <Text style={styles.error}>{error}</Text> : null}
+      {error ? <View style={styles.errorContainer}>
+        <Text style={styles.errorIcon}>!</Text>
+        <Text style={styles.error}>{error}</Text> 
+        </View> : null}
     </View>
   )
 }

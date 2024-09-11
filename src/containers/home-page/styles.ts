@@ -16,6 +16,8 @@ interface Styles {
   temperature: TextStyle
   time: TextStyle
   list: ViewStyle
+  errorContainer: ViewStyle
+  errorIcon: ImageStyle
   error: TextStyle
 }
 
@@ -86,8 +88,26 @@ const styles = StyleSheet.create<Styles>({
   list: {
     marginHorizontal: -values.s
   },
+  errorContainer: {
+    alignItems: 'center',
+    marginTop: values.xxl
+  },
+  errorIcon: {
+    color: colors.white1,
+    fontSize: values.xl,
+    textAlign: 'center',
+    borderRadius: values.xl,
+    borderWidth: values.xxs,
+    width: values.xxl,
+    height: values.xxl,
+    borderColor: colors.white1,
+    fontWeight: 'bold',
+    paddingTop: values.s
+  },
   error: {
-    color: colors.white1
+    color: colors.white1,
+    fontSize: values.m,
+    marginTop: values.m
   }
 })
 
