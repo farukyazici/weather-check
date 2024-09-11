@@ -13,24 +13,27 @@ export const HomePage: React.FC = () => {
   const hours = useSelector(selectForecast) as Hour[]
   return (
     <View style={styles.container}>
-        <Text>Weather Check</Text>
-        <TextInput value={city} onChangeText={setCity} />
-        <TouchableOpacity onPress={() => {
-          dispatch(getForecastRequest(city))
-        }}>
-          <Text>SEARCH</Text>
-        </TouchableOpacity>
-        <Text>{location?.name}, {location?.country}</Text>
+        <Text style={styles.header}>Weather Check</Text>
+        <View style={styles.searchContainer}>
+          <TextInput style={styles.input} value={city} onChangeText={setCity} placeholder="Search..." />
+          <TouchableOpacity style={styles.searchButton} onPress={() => dispatch(getForecastRequest(city))} >
+            <Text>SEARCH</Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.name} numberOfLines={1} ellipsizeMode="middle">{location?.name}, {location?.country}</Text>
         <Text>{location?.tz_id}</Text>
-        <Text>{current?.condition?.text}</Text>
-        <Text>{current?.temp_c}</Text>
-        <Image style={{ width: 48, height: 48 }} source={{ uri: `https:${current?.condition?.icon}` }}/>
-        <Text>{location?.localtime}</Text>
+        <View style={styles.currentCondition}>
+          <Image style={styles.currentIcon} source={{ uri: `https:${current?.condition?.icon}` }}/>
+          <View style={styles.currentDetails}>
+            <Text style={styles.weatherText}>{current?.condition?.text}</Text>
+            <Text style={styles.tempText}>{current?.temp_c}ºC</Text>
+            <Text style={styles.timeText}>{dayjs(location?.localtime).format('HH:mm')}</Text>
+          </View>
+        </View>
         <FlatList
           horizontal
           data={hours}
           renderItem={({ item }) => <View>
-
             <Text>{dayjs(item?.time).format('HH:mm')}</Text>
             <Image style={{ width: 48, height: 48 }} source={{ uri: `https:${item?.condition?.icon}` }}/>
             <Text>{item?.temp_c}</Text>

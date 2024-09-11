@@ -5,18 +5,13 @@ import { GetForecastRequestAction, getForecastSuccess } from './actions'
 import { ForecastDay, Hour } from './reducers'
 import dayjs, { Dayjs } from 'dayjs'
 
-const FORECAST_LIMIT = 8
-export function* handleGetForecast({
-  city
-}: GetForecastRequestAction): Generator<CallEffect | PutEffect> {
+const FORECAST_LIMIT = 5
+export function* handleGetForecast({ city }: GetForecastRequestAction): Generator<CallEffect | PutEffect> {
   try {
     const now = dayjs()
     const isWithinTheDay = 24 - dayjs(now).hour() >= FORECAST_LIMIT
-    // Gett current weather forecast
-    const response = yield call(
-      client.get,
-      API_PATHS.FORECAST,
-      {
+    // Get current weather forecast
+    const response = yield call(client.get, API_PATHS.FORECAST, {
         params: {
           q: city,
           days: isWithinTheDay ? 1 : 2
@@ -35,7 +30,7 @@ export function* handleGetForecast({
   }
 }
 
-function* mySaga() {
+function* weatherSaga() {
   yield takeLatest(GET_FORECAST_REQUEST, handleGetForecast)
 }
 
@@ -54,4 +49,4 @@ const getNext5Forecast = (forecastday: ForecastDay[], localtime: Dayjs) => {
   return nextHours
 }
 
-export default mySaga
+export default weatherSaga

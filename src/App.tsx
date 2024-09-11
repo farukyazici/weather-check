@@ -17,7 +17,7 @@ const App: React.FC = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.cyan2
+    backgroundColor: colors.black2
   }
 })
 
