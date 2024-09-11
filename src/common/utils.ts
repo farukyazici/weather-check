@@ -3,7 +3,7 @@ import { Current, ForecastDay, Hour } from '../redux'
 
 export const getWeatherText = (hour: Hour | Current) => `${hour?.temp_c} ºC`
 
-export const getNext5Forecast = (forecastday: ForecastDay[], localtime: Dayjs, limit: number) => {
+export const getNextHours = (forecastday: ForecastDay[], localtime: Dayjs, limit: number) => {
     const forecastHourList = forecastday?.map((f: ForecastDay) => f.hour)
     const currentTimestamp = dayjs(localtime).add(1, 'hour').format('YYYY-MM-DD HH:00')
     const mergedHours: Hour[] = forecastHourList?.flat()?.map(hour => ({

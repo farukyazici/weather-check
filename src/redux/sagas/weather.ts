@@ -3,7 +3,7 @@ import { GET_FORECAST_REQUEST } from '../action-types'
 import { API_PATHS, client } from '../../api'
 import { GetForecastRequestAction, getForecastError, getForecastSuccess } from '../actions'
 import dayjs from 'dayjs'
-import { getNext5Forecast } from '../../common'
+import { getNextHours } from '../../common'
 
 const FORECAST_LIMIT = 5
 export function* handleGetForecast({ city }: GetForecastRequestAction): Generator<CallEffect | PutEffect> {
@@ -23,7 +23,7 @@ export function* handleGetForecast({ city }: GetForecastRequestAction): Generato
     const weather = {
         current: data?.current,
         location: data?.location,
-        hours: getNext5Forecast(data?.forecast?.forecastday, now, FORECAST_LIMIT)
+        hours: getNextHours(data?.forecast?.forecastday, now, FORECAST_LIMIT)
     }
     yield put(getForecastSuccess(weather))
   } catch (err: any) {

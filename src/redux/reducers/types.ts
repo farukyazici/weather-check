@@ -18,8 +18,8 @@ export interface ForecastDay {
 export interface Hour {
   time: string
   condition: Condition
-  temp_c: string,
-  temp_f: string
+  temp_c: number,
+  temp_f: number
 }
 
 export interface Location {
