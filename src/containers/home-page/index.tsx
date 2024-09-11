@@ -23,6 +23,7 @@ export const HomePage: React.FC = () => {
         <Text>{current?.condition?.text}</Text>
         <Text>{current?.temp_c}</Text>
         <Image style={{ width: 48, height: 48 }} source={{ uri: `https:${current?.condition?.icon}` }}/>
+        <Text>{location?.localtime}</Text>
     </ScrollView>
   )
 }

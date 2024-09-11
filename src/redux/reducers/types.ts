@@ -18,6 +18,7 @@ export interface Location {
   name: string
   country: string
   tz_id: string
+  localtime: string
 }
 
 export interface Weather {

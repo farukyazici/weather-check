@@ -8,6 +8,7 @@ import { AxiosResponse } from 'axios'
 
 export function * handleGetForecast({ city }: GetForecastRequestAction): Generator<CallEffect | PutEffect> {
     try {
+        // Gett current weather forecast
         const response: AxiosResponse<Weather> = yield call(client.get, API_PATHS.FORECAST, {
             params: {
               q: city
